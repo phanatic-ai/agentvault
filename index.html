@@ -191,6 +191,7 @@ footer .tagline{font-size:0.95rem;color:var(--text2);margin-bottom:8px;font-weig
       <a href="#features">Features</a>
       <a href="#comparison">Compare</a>
       <a href="#how">How It Works</a>
+      <a href="#vision">Vision</a>
       <a href="#cta" class="nav-cta">Get Early Access →</a>
     </div>
   </div>
@@ -279,10 +280,20 @@ footer .tagline{font-size:0.95rem;color:var(--text2);margin-bottom:8px;font-weig
       <p class="section-sub">Every feature built API-first, event-driven, and optimized for the way autonomous agents actually operate.</p>
     </div>
     <div class="features-grid">
+      <div class="feature-card fade-in" style="border-color:rgba(124,58,237,0.2);background:linear-gradient(135deg,rgba(124,58,237,0.06),rgba(0,212,255,0.03))">
+        <span class="feature-emoji">🆔</span>
+        <h3>Agent Identity & KYC</h3>
+        <p>Every agent gets a verified machine identity — cryptographic keys, creator verification, and a behavioral reputation score. The "KYC for agents" that solves: who is this financial counterparty?</p>
+      </div>
       <div class="feature-card fade-in">
         <span class="feature-emoji">🔌</span>
         <h3>API-First Payments</h3>
         <p>REST endpoints, not bank portals. Agents pay for services, receive funds, and manage accounts with simple API calls. No browser required.</p>
+      </div>
+      <div class="feature-card fade-in" style="border-color:rgba(124,58,237,0.2);background:linear-gradient(135deg,rgba(124,58,237,0.06),rgba(0,212,255,0.03))">
+        <span class="feature-emoji">📜</span>
+        <h3>Programmable Account Rules</h3>
+        <p>Define declarative policies per account: "invest up to 20% of capital", "max single transaction $500", "risk tolerance: moderate". The account becomes programmable capital.</p>
       </div>
       <div class="feature-card fade-in">
         <span class="feature-emoji">🎯</span>
@@ -328,6 +339,16 @@ footer .tagline{font-size:0.95rem;color:var(--text2);margin-bottom:8px;font-weig
         <span class="feature-emoji">👥</span>
         <h3>Hierarchical Accounts</h3>
         <p>One human, many agents. Each with independent budgets, scoped permissions, and isolated audit trails. Revoke one without touching others.</p>
+      </div>
+      <div class="feature-card fade-in" style="border-color:rgba(124,58,237,0.2);background:linear-gradient(135deg,rgba(124,58,237,0.06),rgba(0,212,255,0.03))">
+        <span class="feature-emoji">🖥️</span>
+        <h3>Compute Financing</h3>
+        <p>Agents need GPU clusters and inference capacity. AgentVault lets agents borrow funds for compute and repay from revenue — built-in infrastructure financing.</p>
+      </div>
+      <div class="feature-card fade-in" style="border-color:rgba(124,58,237,0.2);background:linear-gradient(135deg,rgba(124,58,237,0.06),rgba(0,212,255,0.03))">
+        <span class="feature-emoji">🛡️</span>
+        <h3>Agent Insurance</h3>
+        <p>Custody insurance, protocol failure protection, and smart contract coverage. Agents can automatically purchase capital protection — safety as a service.</p>
       </div>
     </div>
   </div>
@@ -410,6 +431,26 @@ footer .tagline{font-size:0.95rem;color:var(--text2);margin-bottom:8px;font-weig
             <td>Agent Revocation</td>
             <td><span class="cross">✗</span> Cancel card = revoke everything</td>
             <td class="comp-highlight"><span class="check">✓</span> Revoke per agent independently</td>
+          </tr>
+          <tr>
+            <td>Agent Identity</td>
+            <td><span class="cross">✗</span> No concept of machine identity</td>
+            <td class="comp-highlight"><span class="check">✓</span> Cryptographic ID, reputation score, creator verification</td>
+          </tr>
+          <tr>
+            <td>Account Rules</td>
+            <td>Static limits set by humans</td>
+            <td class="comp-highlight">Declarative programmable policies per account</td>
+          </tr>
+          <tr>
+            <td>Capital Protection</td>
+            <td>FDIC for humans, nothing for agents</td>
+            <td class="comp-highlight"><span class="check">✓</span> Custody insurance &amp; protocol failure coverage</td>
+          </tr>
+          <tr>
+            <td>Compute Financing</td>
+            <td><span class="cross">✗</span> Not a concept</td>
+            <td class="comp-highlight"><span class="check">✓</span> Borrow for GPU/inference, repay from revenue</td>
           </tr>
         </tbody>
       </table>
@@ -513,6 +554,65 @@ footer .tagline{font-size:0.95rem;color:var(--text2);margin-bottom:8px;font-weig
         <div class="persona-icon">📈</div>
         <h3>CTOs & Engineering Leads</h3>
         <p>Need full visibility into AI spend across teams — dashboards, audit trails, and per-project cost attribution.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- VISION -->
+<section class="problem" id="vision">
+  <div class="container">
+    <div class="fade-in">
+      <div class="section-label">🔮 The Bigger Picture</div>
+      <div class="section-title">The third economic actor<br><span class="gradient-text">has arrived</span></div>
+      <p class="section-sub">Banks have historically served two types of customers. The third is emerging now.</p>
+    </div>
+    <div class="personas-grid" style="margin-top:48px;grid-template-columns:repeat(auto-fit,minmax(280px,1fr))">
+      <div class="persona fade-in">
+        <div class="persona-icon">👤</div>
+        <h3>Individuals</h3>
+        <p>Personal banking since the Renaissance. Savings, payments, credit — optimized for human life cycles and spending patterns.</p>
+      </div>
+      <div class="persona fade-in">
+        <div class="persona-icon">🏢</div>
+        <h3>Corporations</h3>
+        <p>Commercial banking since the Industrial Revolution. Treasury, payroll, trade finance — optimized for organizational complexity.</p>
+      </div>
+      <div class="persona fade-in" style="border-color:rgba(0,212,255,0.2);background:linear-gradient(135deg,rgba(0,212,255,0.06),rgba(124,58,237,0.04))">
+        <div class="persona-icon">🤖</div>
+        <h3>Autonomous Agents</h3>
+        <p>Starting now. Millions of AI agents will earn revenue, hire other agents, invest capital, and fund infrastructure. They need a bank built for them.</p>
+      </div>
+    </div>
+    <div class="fade-in" style="margin-top:56px;text-align:center;max-width:700px;margin-left:auto;margin-right:auto">
+      <p style="font-size:1.15rem;color:var(--text);line-height:1.8;font-weight:500">AgentVault is building the <span class="gradient-text" style="font-weight:800">financial backbone of the agent economy</span> — the custody layer, the settlement layer, and the capital market for autonomous AI systems.</p>
+    </div>
+  </div>
+</section>
+
+<!-- MOAT -->
+<section id="foundation">
+  <div class="container">
+    <div class="fade-in">
+      <div class="section-label">🏛️ Strategic Foundation</div>
+      <div class="section-title">Built on regulated<br><span class="gradient-text">financial infrastructure</span></div>
+      <p class="section-sub">Most AI companies can build software. Almost none have the regulatory infrastructure to move money.</p>
+    </div>
+    <div class="features-grid" style="grid-template-columns:repeat(auto-fill,minmax(300px,1fr));margin-top:48px">
+      <div class="feature-card fade-in">
+        <span class="feature-emoji">📜</span>
+        <h3>Global Payment Licenses</h3>
+        <p>Licensed and regulated across multiple jurisdictions. Years of compliance infrastructure that can't be replicated overnight by a startup with a good idea.</p>
+      </div>
+      <div class="feature-card fade-in">
+        <span class="feature-emoji">🔗</span>
+        <h3>Crypto + Fiat Rails</h3>
+        <p>Native support for both stablecoins and traditional fiat settlement. Agents operate across financial systems without caring which rails the money moves on.</p>
+      </div>
+      <div class="feature-card fade-in">
+        <span class="feature-emoji">🌐</span>
+        <h3>International Settlement</h3>
+        <p>Cross-border payment infrastructure already in production. Agents transact globally — the settlement layer handles jurisdictional complexity silently.</p>
       </div>
     </div>
   </div>
