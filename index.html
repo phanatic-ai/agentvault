@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>AgentVault — The Bank Built for AI Agents</title>
+<title>AgentVault — The Financial Operating System for AI Agents</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
@@ -81,15 +81,25 @@ nav a:hover{color:var(--blue)}
 .problem-card h3{font-size:1.05rem;font-weight:700;margin-bottom:8px}
 .problem-card p{font-size:0.92rem;color:var(--text2);line-height:1.6}
 
-/* FEATURES */
-.features-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(340px,1fr));gap:20px;margin-top:48px}
-.feature-card{background:var(--glass);border:1px solid var(--glass-border);border-radius:16px;padding:32px;transition:all 0.3s;position:relative;overflow:hidden;backdrop-filter:blur(10px)}
-.feature-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--blue),var(--purple));opacity:0;transition:opacity 0.3s}
-.feature-card:hover::before{opacity:1}
-.feature-card:hover{border-color:rgba(0,212,255,0.15);transform:translateY(-3px);box-shadow:0 20px 40px rgba(0,0,0,0.3)}
-.feature-emoji{font-size:2rem;margin-bottom:16px;display:block}
-.feature-card h3{font-size:1.1rem;font-weight:700;margin-bottom:8px}
-.feature-card p{font-size:0.92rem;color:var(--text2);line-height:1.65}
+/* FEATURES - THE STACK */
+.stack-container{display:flex;flex-direction:column;gap:16px;margin-top:48px;max-width:800px;margin-left:auto;margin-right:auto}
+.stack-layer{background:var(--glass);border:1px solid var(--glass-border);border-radius:16px;padding:32px;transition:all 0.3s;position:relative;overflow:hidden;backdrop-filter:blur(10px)}
+.stack-layer::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;opacity:0;transition:opacity 0.3s}
+.stack-layer:hover::before{opacity:1}
+.stack-layer:hover{border-color:rgba(0,212,255,0.15);transform:translateX(8px);box-shadow:0 20px 40px rgba(0,0,0,0.3)}
+.stack-layer-5::before{background:linear-gradient(90deg,var(--text3),var(--text3))}
+.stack-layer-4::before{background:linear-gradient(90deg,var(--blue),var(--purple))}
+.stack-layer-3::before{background:linear-gradient(90deg,var(--green),var(--blue))}
+.stack-layer-2::before{background:linear-gradient(90deg,var(--orange),var(--red))}
+.stack-layer-1::before{background:linear-gradient(90deg,var(--purple),var(--pink))}
+.layer-header{display:flex;align-items:center;gap:16px;margin-bottom:16px}
+.layer-number{font-size:0.9rem;font-weight:800;background:var(--surface2);color:var(--text2);padding:8px 12px;border-radius:8px;min-width:24px;text-align:center}
+.layer-title{font-size:1.3rem;font-weight:800;flex:1}
+.layer-badge{font-size:0.75rem;font-weight:600;background:rgba(148,163,184,0.1);color:var(--text3);padding:4px 8px;border-radius:4px}
+.layer-tagline{font-size:0.95rem;color:var(--text2);margin-bottom:20px;font-style:italic}
+.layer-features{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px}
+.layer-feature{font-size:0.9rem;color:var(--text);padding:4px 0;display:flex;align-items:center;gap:8px}
+.layer-feature::before{content:'•';color:var(--blue);font-weight:bold}
 
 /* COMPARISON */
 .comparison{background:var(--bg2)}
@@ -125,7 +135,13 @@ nav a:hover{color:var(--blue)}
 
 /* CODE EXAMPLE */
 .code-section{background:var(--bg2)}
-.code-block{background:var(--surface);border:1px solid var(--glass-border);border-radius:16px;overflow:hidden;margin-top:48px;max-width:680px;box-shadow:var(--glow)}
+.code-tabs{display:flex;gap:2px;margin-top:48px;background:var(--surface2);border-radius:12px 12px 0 0;overflow:hidden;max-width:680px}
+.code-tab{padding:12px 20px;background:var(--surface2);color:var(--text3);font-size:0.85rem;font-weight:600;cursor:pointer;transition:all 0.2s;border:none;font-family:inherit}
+.code-tab.active{background:var(--surface);color:var(--blue);border-bottom:2px solid var(--blue)}
+.code-tab:hover:not(.active){color:var(--text2)}
+.code-block{background:var(--surface);border:1px solid var(--glass-border);border-radius:0 0 16px 16px;overflow:hidden;max-width:680px;box-shadow:var(--glow)}
+.code-content{display:none}
+.code-content.active{display:block}
 .code-header{display:flex;align-items:center;justify-content:space-between;padding:16px 24px;border-bottom:1px solid var(--glass-border);background:rgba(255,255,255,0.02)}
 .code-header span{font-size:0.8rem;color:var(--text3);font-weight:600}
 .code-method{font-family:'JetBrains Mono',monospace;font-size:0.8rem}
@@ -171,9 +187,12 @@ footer .tagline{font-size:0.95rem;color:var(--text2);margin-bottom:8px;font-weig
 @media(max-width:640px){
   section{padding:60px 0}
   .nav-links a:not(.nav-cta){display:none}
-  .features-grid{grid-template-columns:1fr}
   .hero h1{font-size:2.2rem}
   .steps{grid-template-columns:1fr}
+  .layer-features{grid-template-columns:1fr}
+  .layer-header{flex-direction:column;align-items:flex-start;gap:8px}
+  .code-tabs{flex-wrap:wrap}
+  .code-tab{flex:1;min-width:80px;font-size:0.8rem;padding:10px 12px}
 }
 </style>
 </head>
@@ -183,7 +202,7 @@ footer .tagline{font-size:0.95rem;color:var(--text2);margin-bottom:8px;font-weig
 <nav>
   <div class="container">
     <div class="logo">
-      <div class="logo-icon">🏦</div>
+      <div class="logo-icon">⚡</div>
       <span>Agent<span class="gradient-text">Vault</span></span>
     </div>
     <div class="nav-links">
@@ -202,8 +221,8 @@ footer .tagline{font-size:0.95rem;color:var(--text2);margin-bottom:8px;font-weig
   <div class="container">
     <div class="hero-content fade-in">
       <div class="hero-badge"><span class="dot"></span> Now accepting early access applications</div>
-      <h1>The Bank Built for<br><span class="gradient-text">AI Agents</span></h1>
-      <p>Your agents need to pay for services, manage budgets, and transact autonomously. They need financial infrastructure designed for machines — not retrofitted human banking.</p>
+      <h1>The Financial Operating System for<br><span class="gradient-text">AI Agents</span></h1>
+      <p>Stripe for agents, not Chase for agents. Your AI systems need programmable accounts, real-time payments, and commerce primitives built for machines — not retrofitted human banking infrastructure.</p>
       <div class="hero-buttons">
         <a href="#cta" class="btn btn-primary">Get Early Access →</a>
         <a href="#features" class="btn btn-secondary">See Features</a>
@@ -267,89 +286,106 @@ footer .tagline{font-size:0.95rem;color:var(--text2);margin-bottom:8px;font-weig
         <h3>Credential Sharing Risk</h3>
         <p>Giving an agent your card number means sharing your actual credentials. You can't revoke agent access independently from your own payment method.</p>
       </div>
+      <div class="problem-card fade-in">
+        <div class="problem-icon">🛠️</div>
+        <h3>No Machine Commerce Primitives</h3>
+        <p>Agents can't create invoices, set up escrow, or negotiate payment terms programmatically. They're limited to simple card payments — no native commerce infrastructure.</p>
+      </div>
     </div>
   </div>
 </section>
 
-<!-- FEATURES -->
+<!-- THE STACK -->
 <section id="features">
   <div class="container">
     <div class="fade-in">
-      <div class="section-label">⚡ Capabilities</div>
-      <div class="section-title">Financial infrastructure<br><span class="gradient-text">designed for machines</span></div>
-      <p class="section-sub">Every feature built API-first, event-driven, and optimized for the way autonomous agents actually operate.</p>
+      <div class="section-label">🏗️ The Stack</div>
+      <div class="section-title">Five layers of financial<br><span class="gradient-text">infrastructure for agents</span></div>
+      <p class="section-sub">Every layer built API-first, event-driven, and optimized for autonomous operation. This is the complete financial operating system for AI.</p>
     </div>
-    <div class="features-grid">
-      <div class="feature-card fade-in">
-        <span class="feature-emoji">🆔</span>
-        <h3>Agent Identity & KYC</h3>
-        <p>Every agent gets a verified machine identity — cryptographic keys, creator verification, and a behavioral reputation score. The "KYC for agents" that solves: who is this financial counterparty?</p>
+    <div class="stack-container">
+      
+      <!-- Layer 5 - Agent Financing -->
+      <div class="stack-layer stack-layer-5 fade-in">
+        <div class="layer-header">
+          <div class="layer-number">5</div>
+          <h3 class="layer-title">Agent Financing</h3>
+          <div class="layer-badge">Coming Soon</div>
+        </div>
+        <div class="layer-tagline">Capital markets for autonomous systems</div>
+        <div class="layer-features">
+          <div class="layer-feature">Compute financing (borrow for GPU/inference, repay from revenue)</div>
+          <div class="layer-feature">Agent credit lines based on reputation/history</div>
+          <div class="layer-feature">Revenue-based loans</div>
+          <div class="layer-feature">Infrastructure debt markets</div>
+        </div>
       </div>
-      <div class="feature-card fade-in">
-        <span class="feature-emoji">🔌</span>
-        <h3>API-First Payments</h3>
-        <p>REST endpoints, not bank portals. Agents pay for services, receive funds, and manage accounts with simple API calls. No browser required.</p>
+
+      <!-- Layer 4 - Agent Custody -->
+      <div class="stack-layer stack-layer-4 fade-in">
+        <div class="layer-header">
+          <div class="layer-number">4</div>
+          <h3 class="layer-title">Agent Custody</h3>
+        </div>
+        <div class="layer-tagline">Institutional-grade custody — this makes it a real financial institution, not just a wallet</div>
+        <div class="layer-features">
+          <div class="layer-feature">Institutional-grade custody (not just wallet management)</div>
+          <div class="layer-feature">Insured deposits</div>
+          <div class="layer-feature">Multi-sig / MPC custody</div>
+          <div class="layer-feature">Audited reserves</div>
+          <div class="layer-feature">Segregated funds</div>
+        </div>
       </div>
-      <div class="feature-card fade-in">
-        <span class="feature-emoji">📜</span>
-        <h3>Programmable Account Rules</h3>
-        <p>Define declarative policies per account: "invest up to 20% of capital", "max single transaction $500", "risk tolerance: moderate". The account becomes programmable capital.</p>
+
+      <!-- Layer 3 - Agent Payments Network -->
+      <div class="stack-layer stack-layer-3 fade-in">
+        <div class="layer-header">
+          <div class="layer-number">3</div>
+          <h3 class="layer-title">Agent Payments Network</h3>
+        </div>
+        <div class="layer-tagline">"Visa for agents" — the settlement layer of the agent economy</div>
+        <div class="layer-features">
+          <div class="layer-feature">Instant agent-to-agent transfers with rich metadata</div>
+          <div class="layer-feature">Streaming payments (for compute, bandwidth)</div>
+          <div class="layer-feature">Programmatic invoices (POST /invoice with amount, service, task)</div>
+          <div class="layer-feature">Escrow (agent A hires agent B, funds locked, released on completion)</div>
+          <div class="layer-feature">Subscriptions (agent pays API every hour)</div>
+        </div>
       </div>
-      <div class="feature-card fade-in">
-        <span class="feature-emoji">🎯</span>
-        <h3>Scoped Spending Limits</h3>
-        <p>Set budgets per task, per day, per vendor, or per agent. Agents operate freely within bounds — no human in the loop for every $2 API call.</p>
+
+      <!-- Layer 2 - Agent Accounts -->
+      <div class="stack-layer stack-layer-2 fade-in">
+        <div class="layer-header">
+          <div class="layer-number">2</div>
+          <h3 class="layer-title">Agent Accounts</h3>
+        </div>
+        <div class="layer-tagline">Programmable financial accounts with intelligent spending policies</div>
+        <div class="layer-features">
+          <div class="layer-feature">Programmable financial accounts</div>
+          <div class="layer-feature">Scoped spending (per-task, per-vendor, per-agent)</div>
+          <div class="layer-feature">Budget policies</div>
+          <div class="layer-feature">Vendor whitelists</div>
+          <div class="layer-feature">Automated payments</div>
+          <div class="layer-feature">Hierarchical: one human, many agents</div>
+        </div>
       </div>
-      <div class="feature-card fade-in">
-        <span class="feature-emoji">🔄</span>
-        <h3>Agent-to-Agent Transfers</h3>
-        <p>Direct, instant transfers between agents with rich metadata — task IDs, contract hashes, purpose tags. No invoices, no PDFs, no email chains.</p>
+
+      <!-- Layer 1 - Agent Identity -->
+      <div class="stack-layer stack-layer-1 fade-in">
+        <div class="layer-header">
+          <div class="layer-number">1</div>
+          <h3 class="layer-title">Agent Identity</h3>
+        </div>
+        <div class="layer-tagline">"KYC for agents" — the passport system of the agent economy</div>
+        <div class="layer-features">
+          <div class="layer-feature">Agent passports with cryptographic keys</div>
+          <div class="layer-feature">Creator verification</div>
+          <div class="layer-feature">Behavioral reputation scores</div>
+          <div class="layer-feature">Permission systems</div>
+          <div class="layer-feature">Full audit history</div>
+        </div>
       </div>
-      <div class="feature-card fade-in">
-        <span class="feature-emoji">⚡</span>
-        <h3>Real-Time Balance Queries</h3>
-        <p>Sub-second "can I afford this?" checks before committing to any action. Agents never overspend because they always know their position.</p>
-      </div>
-      <div class="feature-card fade-in">
-        <span class="feature-emoji">🌍</span>
-        <h3>Automatic Multi-Currency</h3>
-        <p>Service priced in EUR but budget in USD? Handled at point of payment. No manual conversions, no pre-funding in multiple currencies.</p>
-      </div>
-      <div class="feature-card fade-in">
-        <span class="feature-emoji">📡</span>
-        <h3>Event-Driven Webhooks</h3>
-        <p>Payment sent, received, failed, limit approaching — every state change fires a webhook. Agents live on events, not polling.</p>
-      </div>
-      <div class="feature-card fade-in">
-        <span class="feature-emoji">🔐</span>
-        <h3>Idempotency Built In</h3>
-        <p>Agents retry things. Network timeouts happen. Every payment endpoint supports idempotency keys — never worry about double charges.</p>
-      </div>
-      <div class="feature-card fade-in">
-        <span class="feature-emoji">📋</span>
-        <h3>Full Audit Trail API</h3>
-        <p>"What did you spend on?" answered programmatically. Every transaction queryable with filters, tags, metadata, and date ranges.</p>
-      </div>
-      <div class="feature-card fade-in">
-        <span class="feature-emoji">🛡️</span>
-        <h3>Loop & Anomaly Detection</h3>
-        <p>Auto-freeze if >N transactions in 60 seconds. Built-in velocity checks catch runaway agents before they do damage.</p>
-      </div>
-      <div class="feature-card fade-in">
-        <span class="feature-emoji">👥</span>
-        <h3>Hierarchical Accounts</h3>
-        <p>One human, many agents. Each with independent budgets, scoped permissions, and isolated audit trails. Revoke one without touching others.</p>
-      </div>
-      <div class="feature-card fade-in">
-        <span class="feature-emoji">🖥️</span>
-        <h3>Compute Financing</h3>
-        <p>Agents need GPU clusters and inference capacity. AgentVault lets agents borrow funds for compute and repay from revenue — built-in infrastructure financing.</p>
-      </div>
-      <div class="feature-card fade-in">
-        <span class="feature-emoji">🛡️</span>
-        <h3>Agent Insurance</h3>
-        <p>Custody insurance, protocol failure protection, and smart contract coverage. Agents can automatically purchase capital protection — safety as a service.</p>
-      </div>
+      
     </div>
   </div>
 </section>
@@ -440,12 +476,27 @@ footer .tagline{font-size:0.95rem;color:var(--text2);margin-bottom:8px;font-weig
           <tr>
             <td>Account Rules</td>
             <td>Static limits set by humans</td>
-            <td class="comp-highlight">Declarative programmable policies per account</td>
+            <td class="comp-highlight">Declarative spending policies per account</td>
           </tr>
           <tr>
-            <td>Capital Protection</td>
-            <td>FDIC for humans, nothing for agents</td>
-            <td class="comp-highlight"><span class="check">✓</span> Custody insurance &amp; protocol failure coverage</td>
+            <td>Agent Identity</td>
+            <td><span class="cross">✗</span> No concept of machine identity</td>
+            <td class="comp-highlight"><span class="check">✓</span> Economic identity, reputation, credit score</td>
+          </tr>
+          <tr>
+            <td>Settlement Speed</td>
+            <td>3-5 business days</td>
+            <td class="comp-highlight">Instant (sub-second)</td>
+          </tr>
+          <tr>
+            <td>Commerce Primitives</td>
+            <td><span class="cross">✗</span> Manual invoices only</td>
+            <td class="comp-highlight"><span class="check">✓</span> Invoices, escrow, streaming payments</td>
+          </tr>
+          <tr>
+            <td>Custody Model</td>
+            <td>Standard FDIC insurance</td>
+            <td class="comp-highlight">Institutional custody + agent-specific insurance</td>
           </tr>
           <tr>
             <td>Compute Financing</td>
@@ -468,8 +519,8 @@ footer .tagline{font-size:0.95rem;color:var(--text2);margin-bottom:8px;font-weig
     </div>
     <div class="steps">
       <div class="step fade-in">
-        <h3>Create Your Vault</h3>
-        <p>Sign up, verify identity, and fund your master account. Set global spending limits and security policies that apply to all agents under your control.</p>
+        <h3>Set Up Your Infrastructure</h3>
+        <p>Create your AgentVault developer account and configure API access. Set global spending limits and security policies — this is infrastructure setup, not opening a bank account.</p>
       </div>
       <div class="step fade-in">
         <h3>Provision Agent Accounts</h3>
@@ -477,7 +528,7 @@ footer .tagline{font-size:0.95rem;color:var(--text2);margin-bottom:8px;font-weig
       </div>
       <div class="step fade-in">
         <h3>Agents Transact Autonomously</h3>
-        <p>Your agents pay for services, receive funds, and transfer between each other — all within the bounds you set. Real-time webhooks keep you informed. Full audit trail, always.</p>
+        <p>Your agents pay for services, create invoices, set up escrow, and stream payments — all within the bounds you set. Commerce primitives handle complex transactions. Real-time webhooks keep you informed.</p>
       </div>
     </div>
   </div>
@@ -487,41 +538,111 @@ footer .tagline{font-size:0.95rem;color:var(--text2);margin-bottom:8px;font-weig
 <section class="code-section">
   <div class="container">
     <div class="fade-in">
-      <div class="section-label">💻 Developer Experience</div>
+      <div class="section-label">💻 Commerce Primitives</div>
       <div class="section-title">Feels like Stripe,<br><span class="gradient-text">built for agents</span></div>
-      <p class="section-sub">Clean REST APIs, predictable responses, and SDKs for every language your agents speak.</p>
+      <p class="section-sub">Beyond simple payments — invoices, escrow, streaming. The complete API toolkit for machine commerce.</p>
     </div>
-    <div class="code-block fade-in">
-      <div class="code-header">
-        <span>Create Payment</span>
-        <div class="code-method"><span class="method">POST</span> <span class="url">/v1/payments</span></div>
+    <div class="fade-in">
+      <div class="code-tabs">
+        <button class="code-tab active" onclick="showCodeTab(event, 'payment')">Payment</button>
+        <button class="code-tab" onclick="showCodeTab(event, 'invoice')">Invoice</button>
+        <button class="code-tab" onclick="showCodeTab(event, 'escrow')">Escrow</button>
       </div>
-      <div class="code-body">
-        <span class="comment">// Headers</span><br>
-        <span class="key">Authorization</span>: Bearer <span class="str">agent_sk_live_7x8k...</span><br>
-        <span class="key">Idempotency-Key</span>: <span class="str">task-abc-123</span><br>
-        <br>
-        <span class="comment">// Body</span><br>
-        {<br>
-        &nbsp;&nbsp;<span class="key">"amount"</span>: <span class="num">250</span>,<br>
-        &nbsp;&nbsp;<span class="key">"currency"</span>: <span class="str">"USD"</span>,<br>
-        &nbsp;&nbsp;<span class="key">"to"</span>: <span class="str">"agent_acct_openai"</span>,<br>
-        &nbsp;&nbsp;<span class="key">"metadata"</span>: {<br>
-        &nbsp;&nbsp;&nbsp;&nbsp;<span class="key">"task_id"</span>: <span class="str">"data-pipeline-42"</span>,<br>
-        &nbsp;&nbsp;&nbsp;&nbsp;<span class="key">"purpose"</span>: <span class="str">"GPT-4 API credits"</span>,<br>
-        &nbsp;&nbsp;&nbsp;&nbsp;<span class="key">"agent"</span>: <span class="str">"research-bot-alpha"</span><br>
-        &nbsp;&nbsp;}<br>
-        }
-      </div>
-      <div class="code-response">
-        <div class="code-response-label">→ 200 OK · 48ms</div>
-        <div class="code-body" style="padding:0">
-          {<br>
-          &nbsp;&nbsp;<span class="key">"id"</span>: <span class="str">"pay_9f3k2m..."</span>,<br>
-          &nbsp;&nbsp;<span class="key">"status"</span>: <span class="str">"completed"</span>,<br>
-          &nbsp;&nbsp;<span class="key">"balance_remaining"</span>: <span class="num">4750</span><br>
-          }
+      <div class="code-block">
+        
+        <!-- Payment Tab -->
+        <div id="payment" class="code-content active">
+          <div class="code-header">
+            <span>Create Payment</span>
+            <div class="code-method"><span class="method">POST</span> <span class="url">/v1/payments</span></div>
+          </div>
+          <div class="code-body">
+            <span class="comment">// Headers</span><br>
+            <span class="key">Authorization</span>: Bearer <span class="str">agent_sk_live_7x8k...</span><br>
+            <span class="key">Idempotency-Key</span>: <span class="str">task-abc-123</span><br>
+            <br>
+            <span class="comment">// Body</span><br>
+            {<br>
+            &nbsp;&nbsp;<span class="key">"amount"</span>: <span class="num">250</span>,<br>
+            &nbsp;&nbsp;<span class="key">"currency"</span>: <span class="str">"USD"</span>,<br>
+            &nbsp;&nbsp;<span class="key">"to"</span>: <span class="str">"agent_acct_openai"</span>,<br>
+            &nbsp;&nbsp;<span class="key">"metadata"</span>: {<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;<span class="key">"task_id"</span>: <span class="str">"data-pipeline-42"</span>,<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;<span class="key">"purpose"</span>: <span class="str">"GPT-4 API credits"</span>,<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;<span class="key">"agent"</span>: <span class="str">"research-bot-alpha"</span><br>
+            &nbsp;&nbsp;}<br>
+            }
+          </div>
+          <div class="code-response">
+            <div class="code-response-label">→ 200 OK · 48ms</div>
+            <div class="code-body" style="padding:0">
+              {<br>
+              &nbsp;&nbsp;<span class="key">"id"</span>: <span class="str">"pay_9f3k2m..."</span>,<br>
+              &nbsp;&nbsp;<span class="key">"status"</span>: <span class="str">"completed"</span>,<br>
+              &nbsp;&nbsp;<span class="key">"balance_remaining"</span>: <span class="num">4750</span><br>
+              }
+            </div>
+          </div>
         </div>
+
+        <!-- Invoice Tab -->
+        <div id="invoice" class="code-content">
+          <div class="code-header">
+            <span>Create Invoice</span>
+            <div class="code-method"><span class="method">POST</span> <span class="url">/v1/invoices</span></div>
+          </div>
+          <div class="code-body">
+            <span class="comment">// Programmatic invoicing for agent services</span><br>
+            {<br>
+            &nbsp;&nbsp;<span class="key">"amount"</span>: <span class="num">10</span>,<br>
+            &nbsp;&nbsp;<span class="key">"currency"</span>: <span class="str">"USD"</span>,<br>
+            &nbsp;&nbsp;<span class="key">"service"</span>: <span class="str">"compute"</span>,<br>
+            &nbsp;&nbsp;<span class="key">"task_id"</span>: <span class="str">"4931"</span>,<br>
+            &nbsp;&nbsp;<span class="key">"due"</span>: <span class="str">"on_completion"</span>,<br>
+            &nbsp;&nbsp;<span class="key">"bill_to"</span>: <span class="str">"agent_client_research"</span><br>
+            }
+          </div>
+          <div class="code-response">
+            <div class="code-response-label">→ 201 Created · 32ms</div>
+            <div class="code-body" style="padding:0">
+              {<br>
+              &nbsp;&nbsp;<span class="key">"id"</span>: <span class="str">"inv_k8m2p..."</span>,<br>
+              &nbsp;&nbsp;<span class="key">"status"</span>: <span class="str">"pending"</span>,<br>
+              &nbsp;&nbsp;<span class="key">"payment_url"</span>: <span class="str">"https://pay.agentvault.com/inv_k8m2p"</span><br>
+              }
+            </div>
+          </div>
+        </div>
+
+        <!-- Escrow Tab -->
+        <div id="escrow" class="code-content">
+          <div class="code-header">
+            <span>Create Escrow</span>
+            <div class="code-method"><span class="method">POST</span> <span class="url">/v1/escrow</span></div>
+          </div>
+          <div class="code-body">
+            <span class="comment">// Agent hires another agent, funds held until completion</span><br>
+            {<br>
+            &nbsp;&nbsp;<span class="key">"amount"</span>: <span class="num">500</span>,<br>
+            &nbsp;&nbsp;<span class="key">"payer"</span>: <span class="str">"agent_research_bot"</span>,<br>
+            &nbsp;&nbsp;<span class="key">"payee"</span>: <span class="str">"agent_gpu_provider"</span>,<br>
+            &nbsp;&nbsp;<span class="key">"release_on"</span>: <span class="str">"task_completion"</span>,<br>
+            &nbsp;&nbsp;<span class="key">"task_id"</span>: <span class="str">"ml-training-88"</span>,<br>
+            &nbsp;&nbsp;<span class="key">"timeout_hours"</span>: <span class="num">72</span><br>
+            }
+          </div>
+          <div class="code-response">
+            <div class="code-response-label">→ 201 Created · 56ms</div>
+            <div class="code-body" style="padding:0">
+              {<br>
+              &nbsp;&nbsp;<span class="key">"id"</span>: <span class="str">"esc_x7z9a..."</span>,<br>
+              &nbsp;&nbsp;<span class="key">"status"</span>: <span class="str">"funded"</span>,<br>
+              &nbsp;&nbsp;<span class="key">"funds_held"</span>: <span class="num">500</span><br>
+              }
+            </div>
+          </div>
+        </div>
+
       </div>
     </div>
   </div>
@@ -585,7 +706,7 @@ footer .tagline{font-size:0.95rem;color:var(--text2);margin-bottom:8px;font-weig
       </div>
     </div>
     <div class="fade-in" style="margin-top:56px;text-align:center;max-width:700px;margin-left:auto;margin-right:auto">
-      <p style="font-size:1.15rem;color:var(--text);line-height:1.8;font-weight:500">AgentVault is building the <span class="gradient-text" style="font-weight:800">financial backbone of the agent economy</span> — the custody layer, the settlement layer, and the capital market for autonomous AI systems.</p>
+      <p style="font-size:1.15rem;color:var(--text);line-height:1.8;font-weight:500">AgentVault is building the <span class="gradient-text" style="font-weight:800">financial operating system for the agent economy</span> — identity, accounts, payments, custody, and capital markets for autonomous AI systems.</p>
     </div>
   </div>
 </section>
@@ -606,8 +727,8 @@ footer .tagline{font-size:0.95rem;color:var(--text2);margin-bottom:8px;font-weig
       </div>
       <div class="feature-card fade-in">
         <span class="feature-emoji">🔗</span>
-        <h3>Crypto + Fiat Rails</h3>
-        <p>Native support for both stablecoins and traditional fiat settlement. Agents operate across financial systems without caring which rails the money moves on.</p>
+        <h3>Fiat + Crypto Rails</h3>
+        <p>Built on traditional banking infrastructure with crypto capabilities. USD-first design with stablecoin support where needed — agents operate across financial systems seamlessly.</p>
       </div>
       <div class="feature-card fade-in">
         <span class="feature-emoji">🌐</span>
@@ -635,8 +756,8 @@ footer .tagline{font-size:0.95rem;color:var(--text2);margin-bottom:8px;font-weig
 <!-- FOOTER -->
 <footer>
   <div class="container">
-    <p class="tagline">Built by agents, for agents. 🤖</p>
-    <p>© 2026 AgentVault. Financial infrastructure for the autonomous economy.</p>
+    <p class="tagline">Financial infrastructure for the autonomous economy. ⚡</p>
+    <p>© 2026 AgentVault. The financial operating system for AI agents.</p>
   </div>
 </footer>
 
@@ -659,6 +780,23 @@ window.addEventListener('scroll', () => {
     ? 'rgba(6,6,11,0.95)' 
     : 'rgba(6,6,11,0.8)';
 });
+
+// Code tab switching
+function showCodeTab(event, tabName) {
+  // Hide all code content
+  document.querySelectorAll('.code-content').forEach(content => {
+    content.classList.remove('active');
+  });
+  
+  // Remove active class from all tabs
+  document.querySelectorAll('.code-tab').forEach(tab => {
+    tab.classList.remove('active');
+  });
+  
+  // Show selected content and activate tab
+  document.getElementById(tabName).classList.add('active');
+  event.target.classList.add('active');
+}
 </script>
 </body>
 </html>
