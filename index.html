@@ -82,24 +82,26 @@ nav a:hover{color:var(--blue)}
 .problem-card p{font-size:0.92rem;color:var(--text2);line-height:1.6}
 
 /* FEATURES - THE STACK */
-.stack-container{display:flex;flex-direction:column;gap:16px;margin-top:48px;max-width:800px;margin-left:auto;margin-right:auto}
-.stack-layer{background:var(--glass);border:1px solid var(--glass-border);border-radius:16px;padding:32px;transition:all 0.3s;position:relative;overflow:hidden;backdrop-filter:blur(10px)}
-.stack-layer::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;opacity:0;transition:opacity 0.3s}
-.stack-layer:hover::before{opacity:1}
-.stack-layer:hover{border-color:rgba(0,212,255,0.15);transform:translateX(8px);box-shadow:0 20px 40px rgba(0,0,0,0.3)}
-.stack-layer-5::before{background:linear-gradient(90deg,var(--text3),var(--text3))}
-.stack-layer-4::before{background:linear-gradient(90deg,var(--blue),var(--purple))}
-.stack-layer-3::before{background:linear-gradient(90deg,var(--green),var(--blue))}
-.stack-layer-2::before{background:linear-gradient(90deg,var(--orange),var(--red))}
-.stack-layer-1::before{background:linear-gradient(90deg,var(--purple),var(--pink))}
-.layer-header{display:flex;align-items:center;gap:16px;margin-bottom:16px}
-.layer-number{font-size:0.9rem;font-weight:800;background:var(--surface2);color:var(--text2);padding:8px 12px;border-radius:8px;min-width:24px;text-align:center}
-.layer-title{font-size:1.3rem;font-weight:800;flex:1}
-.layer-badge{font-size:0.75rem;font-weight:600;background:rgba(148,163,184,0.1);color:var(--text3);padding:4px 8px;border-radius:4px}
-.layer-tagline{font-size:0.95rem;color:var(--text2);margin-bottom:20px;font-style:italic}
-.layer-features{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px}
-.layer-feature{font-size:0.9rem;color:var(--text);padding:4px 0;display:flex;align-items:center;gap:8px}
-.layer-feature::before{content:'•';color:var(--blue);font-weight:bold}
+.stack-container{display:flex;flex-direction:column;gap:0;margin-top:56px;max-width:900px;margin-left:auto;margin-right:auto;position:relative}
+.stack-container::before{content:'';position:absolute;left:39px;top:40px;bottom:40px;width:2px;background:linear-gradient(180deg,var(--purple),var(--blue),var(--green),var(--orange),var(--text3));opacity:0.3;z-index:0}
+.stack-layer{display:grid;grid-template-columns:80px 1fr;gap:0;padding:28px 0;position:relative;z-index:1;transition:all 0.4s}
+.stack-layer:hover .layer-content{border-color:rgba(0,212,255,0.2);box-shadow:0 8px 40px rgba(0,0,0,0.4);transform:translateX(4px)}
+.layer-indicator{display:flex;flex-direction:column;align-items:center;padding-top:4px}
+.layer-number{width:40px;height:40px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:0.95rem;color:#fff;position:relative;z-index:2;flex-shrink:0}
+.stack-layer-1 .layer-number{background:linear-gradient(135deg,var(--purple),var(--pink))}
+.stack-layer-2 .layer-number{background:linear-gradient(135deg,var(--orange),var(--red))}
+.stack-layer-3 .layer-number{background:linear-gradient(135deg,var(--green),var(--blue))}
+.stack-layer-4 .layer-number{background:linear-gradient(135deg,var(--blue),var(--purple))}
+.stack-layer-5 .layer-number{background:var(--surface2)}
+.layer-content{background:var(--glass);border:1px solid var(--glass-border);border-radius:16px;padding:24px 28px;backdrop-filter:blur(10px);transition:all 0.3s}
+.layer-top{display:flex;align-items:center;gap:12px;margin-bottom:8px}
+.layer-icon{font-size:1.5rem}
+.layer-title{font-size:1.2rem;font-weight:800;flex:1}
+.layer-badge{font-size:0.7rem;font-weight:700;letter-spacing:1px;text-transform:uppercase;background:rgba(148,163,184,0.1);color:var(--text3);padding:4px 10px;border-radius:100px;border:1px solid var(--glass-border)}
+.layer-tagline{font-size:0.9rem;color:var(--text2);margin-bottom:14px;line-height:1.5}
+.layer-chips{display:flex;flex-wrap:wrap;gap:8px}
+.layer-chip{font-size:0.78rem;font-weight:500;color:var(--text2);background:var(--surface2);padding:5px 12px;border-radius:100px;border:1px solid var(--glass-border);transition:all 0.2s;white-space:nowrap}
+.stack-layer:hover .layer-chip{border-color:rgba(0,212,255,0.12);color:var(--text)}
 
 /* COMPARISON */
 .comparison{background:var(--bg2)}
@@ -189,8 +191,11 @@ footer .tagline{font-size:0.95rem;color:var(--text2);margin-bottom:8px;font-weig
   .nav-links a:not(.nav-cta){display:none}
   .hero h1{font-size:2.2rem}
   .steps{grid-template-columns:1fr}
-  .layer-features{grid-template-columns:1fr}
-  .layer-header{flex-direction:column;align-items:flex-start;gap:8px}
+  .stack-layer{grid-template-columns:60px 1fr}
+  .stack-container::before{left:29px}
+  .layer-content{padding:20px}
+  .layer-chips{gap:6px}
+  .layer-chip{font-size:0.75rem;padding:4px 10px}
   .code-tabs{flex-wrap:wrap}
   .code-tab{flex:1;min-width:80px;font-size:0.8rem;padding:10px 12px}
 }
@@ -304,88 +309,111 @@ footer .tagline{font-size:0.95rem;color:var(--text2);margin-bottom:8px;font-weig
       <p class="section-sub">Every layer built API-first, event-driven, and optimized for autonomous operation. This is the complete financial operating system for AI.</p>
     </div>
     <div class="stack-container">
-      
-      <!-- Layer 5 - Agent Financing -->
-      <div class="stack-layer stack-layer-5 fade-in">
-        <div class="layer-header">
-          <div class="layer-number">5</div>
-          <h3 class="layer-title">Agent Financing</h3>
-          <div class="layer-badge">Coming Soon</div>
-        </div>
-        <div class="layer-tagline">Capital markets for autonomous systems</div>
-        <div class="layer-features">
-          <div class="layer-feature">Compute financing (borrow for GPU/inference, repay from revenue)</div>
-          <div class="layer-feature">Agent credit lines based on reputation/history</div>
-          <div class="layer-feature">Revenue-based loans</div>
-          <div class="layer-feature">Infrastructure debt markets</div>
-        </div>
-      </div>
 
-      <!-- Layer 4 - Agent Custody -->
-      <div class="stack-layer stack-layer-4 fade-in">
-        <div class="layer-header">
-          <div class="layer-number">4</div>
-          <h3 class="layer-title">Agent Custody</h3>
+      <!-- Layer 1 - Agent Identity -->
+      <div class="stack-layer stack-layer-1 fade-in">
+        <div class="layer-indicator">
+          <div class="layer-number">1</div>
         </div>
-        <div class="layer-tagline">Institutional-grade custody — this makes it a real financial institution, not just a wallet</div>
-        <div class="layer-features">
-          <div class="layer-feature">Institutional-grade custody (not just wallet management)</div>
-          <div class="layer-feature">Insured deposits</div>
-          <div class="layer-feature">Multi-sig / MPC custody</div>
-          <div class="layer-feature">Audited reserves</div>
-          <div class="layer-feature">Segregated funds</div>
-        </div>
-      </div>
-
-      <!-- Layer 3 - Agent Payments Network -->
-      <div class="stack-layer stack-layer-3 fade-in">
-        <div class="layer-header">
-          <div class="layer-number">3</div>
-          <h3 class="layer-title">Agent Payments Network</h3>
-        </div>
-        <div class="layer-tagline">"Visa for agents" — the settlement layer of the agent economy</div>
-        <div class="layer-features">
-          <div class="layer-feature">Instant agent-to-agent transfers with rich metadata</div>
-          <div class="layer-feature">Streaming payments (for compute, bandwidth)</div>
-          <div class="layer-feature">Programmatic invoices (POST /invoice with amount, service, task)</div>
-          <div class="layer-feature">Escrow (agent A hires agent B, funds locked, released on completion)</div>
-          <div class="layer-feature">Subscriptions (agent pays API every hour)</div>
+        <div class="layer-content">
+          <div class="layer-top">
+            <span class="layer-icon">🆔</span>
+            <h3 class="layer-title">Agent Identity</h3>
+          </div>
+          <div class="layer-tagline">KYC for agents — the passport system of the agent economy</div>
+          <div class="layer-chips">
+            <span class="layer-chip">Cryptographic keys</span>
+            <span class="layer-chip">Creator verification</span>
+            <span class="layer-chip">Reputation scores</span>
+            <span class="layer-chip">Permissions</span>
+            <span class="layer-chip">Audit history</span>
+          </div>
         </div>
       </div>
 
       <!-- Layer 2 - Agent Accounts -->
       <div class="stack-layer stack-layer-2 fade-in">
-        <div class="layer-header">
+        <div class="layer-indicator">
           <div class="layer-number">2</div>
-          <h3 class="layer-title">Agent Accounts</h3>
         </div>
-        <div class="layer-tagline">Programmable financial accounts with intelligent spending policies</div>
-        <div class="layer-features">
-          <div class="layer-feature">Programmable financial accounts</div>
-          <div class="layer-feature">Scoped spending (per-task, per-vendor, per-agent)</div>
-          <div class="layer-feature">Budget policies</div>
-          <div class="layer-feature">Vendor whitelists</div>
-          <div class="layer-feature">Automated payments</div>
-          <div class="layer-feature">Hierarchical: one human, many agents</div>
+        <div class="layer-content">
+          <div class="layer-top">
+            <span class="layer-icon">🏦</span>
+            <h3 class="layer-title">Agent Accounts</h3>
+          </div>
+          <div class="layer-tagline">Programmable financial accounts with intelligent spending policies</div>
+          <div class="layer-chips">
+            <span class="layer-chip">Scoped spending</span>
+            <span class="layer-chip">Budget policies</span>
+            <span class="layer-chip">Vendor whitelists</span>
+            <span class="layer-chip">Auto-payments</span>
+            <span class="layer-chip">Hierarchical accounts</span>
+          </div>
         </div>
       </div>
 
-      <!-- Layer 1 - Agent Identity -->
-      <div class="stack-layer stack-layer-1 fade-in">
-        <div class="layer-header">
-          <div class="layer-number">1</div>
-          <h3 class="layer-title">Agent Identity</h3>
+      <!-- Layer 3 - Agent Payments Network -->
+      <div class="stack-layer stack-layer-3 fade-in">
+        <div class="layer-indicator">
+          <div class="layer-number">3</div>
         </div>
-        <div class="layer-tagline">"KYC for agents" — the passport system of the agent economy</div>
-        <div class="layer-features">
-          <div class="layer-feature">Agent passports with cryptographic keys</div>
-          <div class="layer-feature">Creator verification</div>
-          <div class="layer-feature">Behavioral reputation scores</div>
-          <div class="layer-feature">Permission systems</div>
-          <div class="layer-feature">Full audit history</div>
+        <div class="layer-content">
+          <div class="layer-top">
+            <span class="layer-icon">⚡</span>
+            <h3 class="layer-title">Agent Payments Network</h3>
+          </div>
+          <div class="layer-tagline">Visa for agents — instant settlement across the agent economy</div>
+          <div class="layer-chips">
+            <span class="layer-chip">Instant transfers</span>
+            <span class="layer-chip">Streaming payments</span>
+            <span class="layer-chip">Programmatic invoices</span>
+            <span class="layer-chip">Escrow</span>
+            <span class="layer-chip">Subscriptions</span>
+            <span class="layer-chip">Rich metadata</span>
+          </div>
         </div>
       </div>
-      
+
+      <!-- Layer 4 - Agent Custody -->
+      <div class="stack-layer stack-layer-4 fade-in">
+        <div class="layer-indicator">
+          <div class="layer-number">4</div>
+        </div>
+        <div class="layer-content">
+          <div class="layer-top">
+            <span class="layer-icon">🔐</span>
+            <h3 class="layer-title">Agent Custody</h3>
+          </div>
+          <div class="layer-tagline">Institutional-grade security — not a wallet, a real financial institution</div>
+          <div class="layer-chips">
+            <span class="layer-chip">Insured deposits</span>
+            <span class="layer-chip">Multi-sig / MPC</span>
+            <span class="layer-chip">Audited reserves</span>
+            <span class="layer-chip">Segregated funds</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Layer 5 - Agent Financing -->
+      <div class="stack-layer stack-layer-5 fade-in">
+        <div class="layer-indicator">
+          <div class="layer-number">5</div>
+        </div>
+        <div class="layer-content">
+          <div class="layer-top">
+            <span class="layer-icon">📈</span>
+            <h3 class="layer-title">Agent Financing</h3>
+            <div class="layer-badge">Coming Soon</div>
+          </div>
+          <div class="layer-tagline">Capital markets for autonomous systems</div>
+          <div class="layer-chips">
+            <span class="layer-chip">Compute financing</span>
+            <span class="layer-chip">Credit lines</span>
+            <span class="layer-chip">Revenue-based loans</span>
+          </div>
+        </div>
+      </div>
+
     </div>
   </div>
 </section>
